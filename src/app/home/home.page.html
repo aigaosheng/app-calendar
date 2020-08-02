@@ -1,4 +1,3 @@
-// home.page.html
 <ion-header>
   <ion-toolbar>
     <ion-title>
@@ -8,37 +7,22 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
+ 
+  
+   <div class="ion-padding">
+ 
+     <ion-calendar [(ngModel)]="date"
+       (onChange)="onChange($event)"
+       (select)="onSelect($event)"
+       [type]="type"
+       [options]="options"
+       [format]="'YYYY-MM-DD'">
+     </ion-calendar>
+   </div>
+ </ion-content>
+ 
+ 
+   <button ion-button full >{{ dateNow }}</button>
 
-    <ion-calendar [(ngModel)]="date"
-      (onChange)="onChange($event)"
-      [type]="type"
-      [format]="'YYYY-MM-DD'">
-    </ion-calendar>
 
-  </div>
-</ion-content>
 
-<ion-content>
-  <div class="ion-padding">
-
-    <ion-calendar [(ngModel)]="dateMulti"
-        [options]="optionsMulti"
-        [type]="type"
-        [format]="'YYYY-MM-DD'">
-    </ion-calendar>
-    
-  </div>
-</ion-content>
-
-<ion-content>
-  <div class="ion-padding">
-
-    <ion-calendar [(ngModel)]="dateRange"
-        [options]="optionsRange"
-        [type]="type"
-        [format]="'YYYY-MM-DD'">
-    </ion-calendar>
-    
-  </div>
-</ion-content>

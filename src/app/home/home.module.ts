@@ -9,8 +9,10 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 
 // Calendar UI Module
-import { CalendarModule, CalendarComponentOptions  } from 'ion2-calendar';
+import { CalendarModule } from 'ion2-calendar';
 
+
+//import { MsgeventComponent } from "../msgevent/MsgeventComponent";
 
 @NgModule({
   imports: [
@@ -24,6 +26,7 @@ import { CalendarModule, CalendarComponentOptions  } from 'ion2-calendar';
       }
     ]),
     CalendarModule,
+    //MsgeventComponent
   ],
   declarations: [HomePage]
 })
