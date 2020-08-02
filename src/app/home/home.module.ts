@@ -12,6 +12,8 @@ import { HomePage } from './home.page';
 import { CalendarModule } from 'ion2-calendar';
 
 
+//import { MsgeventComponent } from "../msgevent/MsgeventComponent";
+
 @NgModule({
   imports: [
     CommonModule,
