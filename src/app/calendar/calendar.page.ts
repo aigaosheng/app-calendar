@@ -23,9 +23,11 @@ import {
 })
 export class CalendarPage implements OnInit {
   type: 'string';
-  date: string = '2018-01-01';
+  date: string[];
   options: CalendarComponentOptions = {
     from: new Date(2000, 0, 1),
+    'pickMode': 'multi',
+    'color': 'secondary'
   };
   dateNow: string;
   eventdate: Date;
