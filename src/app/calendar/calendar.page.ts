@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from "../message/message.service";
 
-import {
-  CalendarComponentOptions
-} from 'ion2-calendar'
+import { CalendarComponentOptions } from 'ion2-calendar'
 
 @Component({
   selector: 'app-calendar',
@@ -22,17 +20,23 @@ import {
   `*/
 })
 export class CalendarPage implements OnInit {
+
   type: 'string';
   date: string[];
   options: CalendarComponentOptions = {
-    from: new Date(2000, 0, 1),
+    from: new Date(2010, 1, 2),
     'pickMode': 'multi',
-    'color': 'secondary'
+    'color': 'secondary',
+    'daysConfig': [{'date':new Date(2020,1,2),  'subTitle':'world','marked':true}],
   };
+
+
   dateNow: string;
   eventdate: Date;
 
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService) {
+  
+  }
  
 
   getMessage(): void {
