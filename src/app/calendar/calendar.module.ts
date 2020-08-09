@@ -9,6 +9,9 @@ import { CalendarPage } from './calendar.page';
 // Calendar UI Module
 import { CalendarModule } from 'ion2-calendar';
 
+//import {EventdbComponent} from '../eventdb/eventdb.component';
+
+
 //import { MsgeventComponent } from "../msgevent/MsgeventComponent";
 
 @NgModule({

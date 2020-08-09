@@ -3,6 +3,8 @@ import { MessageService } from "../message/message.service";
 
 import { CalendarComponentOptions } from 'ion2-calendar'
 
+//import { EventdbComponent } from '../eventdb/eventdb.component';
+
 @Component({
   selector: 'app-calendar',
   templateUrl:'calendar.page.html',
