@@ -2,8 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from "../message/message.service";
 
 import { CalendarComponentOptions } from 'ion2-calendar'
+import { EventdbComponent } from '../eventdb/eventdb.component'
+import { AngularFireDatabase, AngularFireList  } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-//import { EventdbComponent } from '../eventdb/eventdb.component';
+class Book {
+    constructor(public title: string) { }
+}
 
 @Component({
   selector: 'app-calendar',
@@ -36,11 +42,32 @@ export class CalendarPage implements OnInit {
   dateNow: string;
   eventdate: Date;
 
-  constructor(private messageService: MessageService) {
-  
+
+  bookRef: AngularFireList<any>;
+  public books: Observable<any[]>;
+
+  private bookCounter = 0;
+
+  private filter = '';
+
+  constructor(private messageService: MessageService, private db: AngularFireDatabase) {
+    this.bookRef = db.list('/events');
+    this.books = this.bookRef.snapshotChanges().pipe(
+      map(changes => 
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
   }
  
 
+  public addBook(): void {
+    const newBook = new Book(`My book #${this.bookCounter++}`);
+    this.bookRef.push(newBook);
+}
+
+public filterBooks(): void {
+    this.bookRef = this.db.list('/events',ref => ref.orderByChild('title').equalTo('My book #0'));
+}
   getMessage(): void {
     this.eventdate = this.messageService.getMsg();
   }

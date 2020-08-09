@@ -20,9 +20,23 @@
      </ion-calendar>
    </div>
  </ion-content>
- 
- 
-   <button ion-button full >{{ dateNow }} + {{eventdate|date}}</button>
+ <ion-content>
+ <div class="ion-padding">
+  <button ion-button full >{{ dateNow }} + {{eventdate|date}}</button>
+ </div>
+</ion-content>
 
-
+<ion-content>
+ 
+  
+  <div class="ion-padding">
+   <ul>
+     <li *ngFor="let book of books | async">
+         <pre>{{ book | json }}</pre>
+     </li>
+ </ul>
+ <button (click)="addBook()">Add a book!</button>
+ <button (click)="filterBooks()">Filter books</button>
+ </div>
+</ion-content>
 
