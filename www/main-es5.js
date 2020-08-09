@@ -132,7 +132,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n";
+    __webpack_exports__["default"] = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n\n</ion-app>\n\n\n\n";
     /***/
   },
 
@@ -189,6 +189,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       path: '',
       redirectTo: 'calendar',
       pathMatch: 'full'
+    }, {
+      path: 'eventdb',
+      loadChildren: function loadChildren() {
+        return __webpack_require__.e(
+        /*! import() | eventdb-eventdb-module */
+        "eventdb-eventdb-module").then(__webpack_require__.bind(null,
+        /*! ./eventdb/eventdb.module */
+        "./src/app/eventdb/eventdb.module.ts")).then(function (m) {
+          return m.EventdbModule;
+        });
+      }
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -395,6 +406,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./app-routing.module */
     "./src/app/app-routing.module.ts");
+    /* harmony import */
+
+
+    var _environments_environment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ../environments/environment */
+    "./src/environments/environment.ts");
+    /* harmony import */
+
+
+    var _angular_fire_database__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/fire/database */
+    "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-database.js");
+    /* harmony import */
+
+
+    var _angular_fire__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! @angular/fire */
+    "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -403,7 +432,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
       entryComponents: [],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].firebase), _angular_fire_database__WEBPACK_IMPORTED_MODULE_10__["AngularFireDatabaseModule"]],
       providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
@@ -437,7 +466,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var environment = {
-      production: false
+      production: false,
+      firebase: {
+        apiKey: "AIzaSyAYJ9HqEMq7xcsMWyg2Dw-X5iwpgY51LV8",
+        authDomain: "app-calendar-f76f0.firebaseapp.com",
+        databaseURL: "https://app-calendar-f76f0.firebaseio.com",
+        projectId: "app-calendar-f76f0",
+        storageBucket: "app-calendar-f76f0.appspot.com",
+        messagingSenderId: "115117696925",
+        appId: "1:115117696925:web:d47d02111b3d7e95bc7174"
+      }
     };
     /*
      * For easier debugging in development mode, you can import the following file

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "app-calendar-f76f0": {
+      "hosting": {
+        "app": [
+          "app-calendar-f76f0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "app-calendar-f76f0"
+  }
+}

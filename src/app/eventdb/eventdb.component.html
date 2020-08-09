@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic event Examples
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  
+   <div class="ion-padding">
+    <ul>
+      <li *ngFor="let book of books | async">
+          <pre>{{ book | json }}</pre>
+      </li>
+  </ul>
+  <button (click)="addBook()">Add a book!</button>
+  <button (click)="filterBooks()">Filter books</button>
+  </div>
+ </ion-content>
+ 

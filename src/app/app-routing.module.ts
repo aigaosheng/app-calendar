@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { EventdbComponent } from './eventdb/eventdb.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
     redirectTo: 'calendar',
     pathMatch: 'full'
   },
+  {
+    path: 'eventdb',  loadChildren: () => import('./eventdb/eventdb.module').then( m => m.EventdbModule)
+  }
+
 ];
 
 @NgModule({

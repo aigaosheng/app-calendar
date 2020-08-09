@@ -23187,7 +23187,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Ionic Calendar Examples\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n \n  \n   <div class=\"ion-padding\">\n \n     <ion-calendar [(ngModel)]=\"date\"\n       (onChange)=\"onChange($event)\"\n       (select)=\"onSelect($event)\"\n       [type]=\"type\"\n       [options]=\"options\"\n       [format]=\"'YYYY-MM-DD'\">\n     </ion-calendar>\n   </div>\n </ion-content>\n \n \n   <button ion-button full >{{ dateNow }}</button>\n\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Ionic Calendar Examples\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n \n  \n   <div class=\"ion-padding\">\n \n     <ion-calendar [(ngModel)]=\"date\"\n       (onChange)=\"onChange($event)\"\n       (select)=\"onSelect($event)\"\n       [type]=\"type\"\n       [options]=\"options\"\n       [format]=\"'YYYY-MM-DD'\">\n     </ion-calendar>\n   </div>\n   <app-eventdb></app-eventdb>\n </ion-content>\n \n \n   <button ion-button full >{{ dateNow }} + {{eventdate|date}}</button>\n\n\n\n");
 
 /***/ }),
 
@@ -23309,9 +23309,11 @@ __webpack_require__.r(__webpack_exports__);
 let CalendarPage = class CalendarPage {
     constructor(messageService) {
         this.messageService = messageService;
-        this.date = '2018-01-01';
         this.options = {
-            from: new Date(2000, 0, 1),
+            from: new Date(2010, 1, 2),
+            'pickMode': 'multi',
+            'color': 'secondary',
+            'daysConfig': [{ 'date': new Date(2020, 1, 2), 'subTitle': 'world', 'marked': true }],
         };
     }
     getMessage() {
@@ -23323,6 +23325,9 @@ let CalendarPage = class CalendarPage {
     onSelect($event) {
         console.log('onSelect', $event);
         this.dateNow = new Date($event['time']).toLocaleDateString();
+    }
+    ngOnInit() {
+        this.getMessage();
     }
 };
 CalendarPage.ctorParameters = () => [
@@ -23357,8 +23362,8 @@ __webpack_require__.r(__webpack_exports__);
 
 let MessageService = class MessageService {
     constructor() {
-        this.msg[0] = new Date(2020, 7, 1);
-        this.msg[1] = new Date(2020, 7, 5);
+        this.msg = new Date(2020, 0, 1);
+        //this.msg[1] = new Date(2020, 7, 5)
     }
     getMsg() {
         return this.msg;
