@@ -40,3 +40,32 @@
  </div>
 </ion-content>
 
+<ion-content>
+  <div class="ion-padding">
+  <h1>Text ({{textValue}})</h1>
+        <input #textbox type="text" [(ngModel)]="textValue" required>
+        <button (click)="logText(textbox.value)">Update Log</button>
+        <button (click)="textValue=''">Clear</button>
+
+        <h2>Template Reference Variable</h2>
+        Type: '{{textbox.type}}', required: '{{textbox.hasAttribute('required')}}',
+        upper: '{{textbox.value.toUpperCase()}}'
+
+        <h2>Log <button (click)="log=''">Clear</button></h2>
+        <pre>{{log}}</pre>
+  </div>
+</ion-content>
+
+<ion-content>
+<div class="ion-padding">
+  <h1>Text ({{dateValue}})</h1>
+        <input #datetextbox type="date" [(ngModel)]="dateValue" required>
+        <button (click)="logTextDate(datetextbox.value)">Update Log</button>
+        <button (click)="dateValue=''">Clear</button>
+
+
+        <h2>Log date <button (click)="logDate=''">Clear date</button></h2>
+        <pre>{{logDate}}</pre>
+
+  </div>
+</ion-content>

@@ -6,6 +6,7 @@ import { EventdbComponent } from '../eventdb/eventdb.component'
 import { AngularFireDatabase, AngularFireList  } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { stringify } from 'querystring';
 
 class Book {
     constructor(public title: string) { }
@@ -84,4 +85,21 @@ public filterBooks(): void {
   ngOnInit () {
     this.getMessage()
   }
+
+  //
+  textValue: string = 'initial value';
+  log: string = '';
+
+  logText(value: string): void {
+    this.log += `Text changed to '${value}'\n`;
+  }
+
+  //
+  dateValue: string = 'initial date value';
+  logDate: Date = new Date(2020,7,0);
+
+  logTextDate(value: Date): void {
+    this.logDate = value;
+  }
+
 }
